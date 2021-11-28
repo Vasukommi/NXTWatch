@@ -1,0 +1,68 @@
+.login-app-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.form-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  box-shadow: 0px 0px 16px 0px #bfbfbf;
+  padding: 50px;
+  border-radius: 12px;
+}
+
+.login-logo-image {
+  height: 50px;
+  width: 230px;
+  margin-top: 20px;
+  margin-bottom: 50px;
+  align-self: center;
+}
+
+@media screen and (max-width: 768px) {
+  .form-container {
+    padding: 25px;
+  }
+
+  .login-logo-image {
+    height: 30px;
+    width: 150px;
+  }
+}
+
+.login-label {
+  font-size: 15px;
+}
+
+.user-input {
+  height: 40px;
+  width: 300px;
+  padding-left: 10px;
+  margin-bottom: 20px;
+}
+
+@media screen and (max-width: 768px) {
+  .login-label {
+    font-size: 13px;
+  }
+
+  .user-input {
+    height: 33px;
+    width: 250px;
+  }
+}
+
+.show-password-container {
+  display: flex;
+  align-items: center;
+}
+
+.checkbox-input {
+  height: 17px;
+  width: 17px;
+  margin-right: 10px;
+}
