@@ -1,13 +1,16 @@
-import Sidebar from './components/Sidebar'
-import Navbar from './components/Navbar'
+import {Route, Switch} from 'react-router-dom'
+
+import ProtectedRoute from './components/ProtectedRoute'
+import Home from './components/Home'
+import Login from './components/Login'
 
 import './App.css'
 
 const App = () => (
-  <>
-    <Navbar />
-    <Sidebar />
-  </>
+  <Switch>
+    <Route path="/login" component={Login} />
+    <ProtectedRoute path="/" component={Home} />
+  </Switch>
 )
 
 export default App

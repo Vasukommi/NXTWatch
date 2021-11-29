@@ -1,0 +1,30 @@
+.home-page {
+  display: flex;
+  height: 90vh;
+}
+
+.home-page-video-content {
+  width: 100%;
+  overflow: auto;
+}
+
+.desktop-side-bar {
+  position: relative;
+  width: 20vw;
+}
+
+@media screen and (min-width: 768px) {
+  .mobile-bottom-side-bar {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .desktop-side-bar {
+    display: none;
+  }
+  .mobile-bottom-side-bar {
+    position: fixed;
+    bottom: 0;
+  }
+}

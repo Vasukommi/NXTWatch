@@ -66,3 +66,10 @@
   width: 17px;
   margin-right: 10px;
 }
+
+.error-message {
+  color: #ff0000;
+  font-size: 13px;
+  margin-bottom: 5px;
+  margin-top: -10px;
+}

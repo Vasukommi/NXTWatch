@@ -14,6 +14,17 @@ class Login extends Component {
     username: '',
     password: '',
     showPassword: false,
+    showError: false,
+    errorMessage: '',
+  }
+
+  onLoginSuccess = () => {
+    const {history} = this.props
+    history.replace('/')
+  }
+
+  onLoginFailure = err => {
+    this.setState({errorMessage: err, showError: true})
   }
 
   authorizeLoginFetch = async () => {
@@ -29,14 +40,20 @@ class Login extends Component {
     }
     const response = await fetch(url, options)
     const loginData = await response.json()
+
     if (response.ok === true) {
       const token = loginData.jwt_token
-      Cookie.set('jwt_token', token, {expiry: 30})
+      Cookie.set('jwt_token', token, {expires: 30})
+      this.onLoginSuccess()
+    } else {
+      const message = loginData.error_msg
+      this.onLoginFailure(message)
     }
   }
 
   onSubmitForm = event => {
     event.preventDefault()
+    this.authorizeLoginFetch()
   }
 
   onShowPassword = () => {
@@ -94,12 +111,14 @@ class Login extends Component {
   }
 
   render() {
+    const {showError, errorMessage} = this.state
     return (
       <div className="login-app-container">
         <form className="form-container" onSubmit={this.onSubmitForm}>
           <img className="login-logo-image" src={lightTheme} alt="Login" />
           {this.renderUsername()}
           {this.renderPassword()}
+          {showError && <p className="error-message">{errorMessage}</p>}
           <div className="show-password-container">
             <input
               className="checkbox-input"
